@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .controles, #div, #div1{
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="controles">
+        <label for="name">Ingresa un nombre:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="number">Ingresa un número:</label>
+        <input type="text" id="number" name="number">
+
+        <input type="button" value="Aceptar" onclick="IniciarCiclo()">
+    </div>
+   
+</body>
+<script>
+function IniciarCiclo(){
+    var total = document.getElementById("number").value;
+    var newDiv = document.createElement("div");
+    
+    for(let i = 0; i < total ; i ++){
+
+        var newContent = document.createTextNode(document.getElementById("name").value + " " + (i +1));
+        newDiv.appendChild(newContent); //añade texto al div creado.
+        newDiv.appendChild(document.createElement("br"));
+    }
+
+    var currentDiv = document.getElementById("div1");
+    document.body.insertBefore(newDiv, currentDiv);
+}
+</script>
+</html>
